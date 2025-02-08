@@ -25,9 +25,13 @@ def insert_into_db(data, db_path=None):
         information.append(db.insert(i))
     return information
 
-def query_db(db_path, query_field, query_value):
+def query_db(db_path, query_field=None, query_value=None):
     # Query the database
-    pass
+    db=TinyDB(db_path)
+    if query_db and query_field:
+        QueryObekti=Query
+        return db.search(QueryObekti[query_field]==query_value)
+    return db.all()
 
 if __name__ == "__main__":
     # Main execution logic
